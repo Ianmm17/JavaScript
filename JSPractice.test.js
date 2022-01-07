@@ -9,5 +9,4 @@ test("Doubles the provided number", () => {
 });
 test("Doubles each num in the array", () => {
     expect(collectionsIntArray([1,2,3])).toEqual([2,4,6])
-    // test
 })
