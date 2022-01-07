@@ -1,14 +1,12 @@
 {
-  "name": "JavaScript",
+  "name": "javascript",
   "version": "1.0.0",
-  "description": "",
   "main": "HelloWorld.js",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^27.4.7"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/Ianmm17/JavaScript/issues"
   },
-  "homepage": "https://github.com/Ianmm17/JavaScript#readme"
+  "homepage": "https://github.com/Ianmm17/JavaScript#readme",
+  "description": ""
 }
