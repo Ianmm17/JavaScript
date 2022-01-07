@@ -25,4 +25,28 @@ function doWeMatch(array1, array2) {
     }
     return true
 }
-module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch}
+function lowestAndHighest(numArray, choice) {
+    if (numArray.length === 0) {
+        return []
+    }
+    let totalAdd = 0
+    let low = numArray[0]
+    let high = numArray[0]
+
+    for (let i = 1; i < numArray.length; i++) {
+        if (numArray[i] > high) {
+            high = numArray[i]
+        }
+        if (numArray[i] < low) {
+            low = numArray[i]
+        }
+    }
+    if (choice === "add") {
+        totalAdd = low + high
+    }
+    if (choice === "multiply") {
+        totalAdd = low * high
+    }
+    return [low, high, totalAdd]
+}
+module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, lowestAndHighest}
