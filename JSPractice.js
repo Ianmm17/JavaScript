@@ -49,4 +49,45 @@ function lowestAndHighest(numArray, choice) {
     }
     return [low, high, totalAdd]
 }
-module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, lowestAndHighest}
+function numberOfLegs(numSheep, numChickens, numOctopi) {
+    const numSheepLegs = numSheep * 4
+    const numChickenLegs = numChickens * 2
+    const numOctopiLegs = numOctopi * 8
+
+    const totalNumOfLegs = numSheepLegs + numChickenLegs + numOctopiLegs
+
+    return totalNumOfLegs
+}
+function sumInt(numArray) {
+    let sum = 0
+    for(let i = 0; i < numArray.length; i++) {
+        sum += numArray[i]
+    }
+    return sum
+}
+function productMulti(array) {
+    let sum = 1
+    for(let i = 0; i < array.length; i++) {
+        sum *= array[i]
+    }
+    return sum
+}
+function userChoiceAddOrMultiply(array, usersChoice) {
+    if (usersChoice) {
+        return sumInt(array)
+    } else {
+        return productMulti(array)
+    }
+}
+function convertToSeconds(hour, min) {
+    return hrToSec(hour) + minToSec(min)
+}
+function minToSec(min) {
+    return min * 60
+}
+function hrToSec(hour) {
+    return hour * 3600
+}
+module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
+    lowestAndHighest, numberOfLegs, sumInt, 
+    productMulti, userChoiceAddOrMultiply, convertToSeconds}
