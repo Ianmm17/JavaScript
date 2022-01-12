@@ -89,51 +89,15 @@ function hrToSec(hour) {
     return hour * 3600
 }
 
-// function rps(p1, p2) {
-//     if (p1 === p2) {
-//         return "Draw!"
-//     }
-//     if (p1 === "scissors" && p2 === "paper") {
-//         return "Player 1 won!"
-//     }
-//     if (p2 === "scissors" && p1 === "paper") {
-//         return "Player 2 won!"
-//     }
-//     if (p1 === "paper" && p2 === "rock") {
-//         return "Player 1 won!"
-//     }
-//     if (p2 === "paper" && p1 === "rock") {
-//         return "Player 2 won!"
-//     }
-//     if (p1 === "rock" && p2 === "scissors") {
-//         return "Player 1 won!"
-//     }
-//     if (p2 === "rock" && p1 === "scissors") {
-//         return "Player 2 won!"
-//     }
-// }
 const winTable = {
     scissors: function (p2) {
-        if (p2 === "paper") {
-            return "Player 1 won!"
-        } else {
-            return "Player 2 won!"
-        }
-
+        return p2 === "paper"
     },
     paper: function (p2) {
-        if (p2 === "rock") {
-            return "Player 1 won!"
-        } else {
-            return  "Player 2 won!"
-        }
+        return p2 === "rock"
     },
     rock: function (p2) {
-        if (p2 === "scissors") {
-            return "Player 1 won!"
-        } else {
-            return "Player 2 won!"
-        }
+        return p2 === "scissors"
     }
 }
 
@@ -143,8 +107,11 @@ function rps(p1, p2) {
     } else {
         const winFunction = winTable[p1]
         const whoWins = winFunction(p2)
-
-        return whoWins
+        if (whoWins) {
+            return "Player 1 won!"
+        } else {
+            return "Player 2 won!"
+        }
     }
 }
 
