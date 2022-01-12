@@ -88,6 +88,45 @@ function minToSec(min) {
 function hrToSec(hour) {
     return hour * 3600
 }
+
+const winTable = {
+    scissors: function (p2) {
+        return p2 === "paper"
+    },
+    paper: function (p2) {
+        return p2 === "rock"
+    },
+    rock: function (p2) {
+        return p2 === "scissors"
+    }
+}
+
+function rps(p1, p2) {
+    if (p1 === p2) {
+        return "Draw!"
+    } else {
+        const winFunction = winTable[p1]
+        const whoWins = winFunction(p2)
+        if (whoWins) {
+            return "Player 1 won!"
+        } else {
+            return "Player 2 won!"
+        }
+    }
+}
+
+function removeLowerVowels(word) {
+    const lowerVowels = ["a","e","i","o","u"]
+    for (let i =0; i < word.length; i++) {
+        console.log(i, word[i])
+        if (lowerVowels.includes(word[i])) {
+            let newWord = "";
+            newWord += word.replace(word[i], "")
+        }
+        return newWord;
+    }
+}
+
 module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, 
-    productMulti, userChoiceAddOrMultiply, convertToSeconds}
+    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels}

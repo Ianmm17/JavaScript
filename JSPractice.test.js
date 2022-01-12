@@ -1,6 +1,7 @@
 const {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, 
-    productMulti, userChoiceAddOrMultiply, convertToSeconds} = require('./JSPractice');
+    productMulti, userChoiceAddOrMultiply, convertToSeconds,
+    rps, removeLowerVowels} = require('./JSPractice');
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -102,3 +103,41 @@ describe("TestUserChoiceAddOrMultiply", () => {
         expect(actual).toEqual(expected)
     })
 })
+describe("rock paper scissors", () =>{
+    test("P1 Wins", () => {
+        const actual1 = rps("scissors", "paper")
+        const actual2 = rps("paper", "rock")
+        const actual3 = rps("rock", "scissors")
+        const expected = "Player 1 won!"
+        expect(actual1).toEqual(expected)
+        expect(actual2).toEqual(expected)
+        expect(actual3).toEqual(expected)
+    })
+    test("P2 Wins", () => {
+        const actual1 = rps("paper", "scissors")
+        const actual2 = rps("rock", "paper")
+        const actual3 = rps("scissors", "rock")
+        const expected = "Player 2 won!"
+        expect(actual1).toEqual(expected)
+        expect(actual2).toEqual(expected)
+        expect(actual3).toEqual(expected)
+    })
+    test("Draw", () => {
+        const actual1 = rps("scissors", "scissors")
+        const actual2 = rps("paper", "paper")
+        const actual3 = rps("rock", "rock")
+        const expected = "Draw!"
+        expect(actual1).toEqual(expected)
+        expect(actual2).toEqual(expected)
+        expect(actual3).toEqual(expected)
+    })
+})
+
+describe("removing lower case vowels", () => {
+    test("hello", () => {
+        const actual = removeLowerVowels("hello")
+        const expected = "hll"
+        expect(actual).toEqual(expected)
+    })
+})
+
