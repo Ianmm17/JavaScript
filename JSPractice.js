@@ -115,6 +115,18 @@ function rps(p1, p2) {
     }
 }
 
+function removeLowerVowels(word) {
+    const lowerVowels = ["a","e","i","o","u"]
+    for (let i =0; i < word.length; i++) {
+        console.log(i, word[i])
+        if (lowerVowels.includes(word[i])) {
+            let newWord = "";
+            newWord += word.replace(word[i], "")
+        }
+        return newWord;
+    }
+}
+
 module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, 
-    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps}
+    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels}

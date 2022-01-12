@@ -1,6 +1,7 @@
 const {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, 
-    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps} = require('./JSPractice');
+    productMulti, userChoiceAddOrMultiply, convertToSeconds,
+    rps, removeLowerVowels} = require('./JSPractice');
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -129,6 +130,14 @@ describe("rock paper scissors", () =>{
         expect(actual1).toEqual(expected)
         expect(actual2).toEqual(expected)
         expect(actual3).toEqual(expected)
+    })
+})
+
+describe("removing lower case vowels", () => {
+    test("hello", () => {
+        const actual = removeLowerVowels("hello")
+        const expected = "hll"
+        expect(actual).toEqual(expected)
     })
 })
 
