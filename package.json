@@ -19,5 +19,8 @@
     "url": "https://github.com/Ianmm17/JavaScript/issues"
   },
   "homepage": "https://github.com/Ianmm17/JavaScript#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
