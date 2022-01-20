@@ -8,8 +8,6 @@ let vegetable =  ['peas', 'green beans', 'kale','edamame', 'broccoli', 'asparagu
 let beverage = ['juice', 'milk', 'water', 'soy milk', 'soda', 'tea'];
 let dessert = ['apple', 'banana', 'more kale','ice cream', 'chocolate', 'kiwi'];
 
-let pantry = [protein, grain, vegetable, beverage, dessert]
-console.log(pantry)
 //Part A #2: Construct a for loop that assembles a meal for each of 6 astronauts.
 /*
 a. The meals must include one item from each of the source arrays.
@@ -27,13 +25,26 @@ for (let i = 0; i < 6; i++) {
 //9.10.3
 //Part C #5: Using a while loop, ask the user to select the number of meals to assemble.  Validate the input to make sure it is an integer from 1 - 6.
 
+let pantry = [protein, grain, vegetable, beverage, dessert]
 let userChoice = 0
 
 while (userChoice < 1 || userChoice > 6) {
     userChoice = Number(input.question("Select the number of meals to assemble (1-6) "))
 
     if (userChoice >= 1 && userChoice <= 6) {
-        
+        for (let i = 0; i < userChoice; i++) {
+            let meal = [protein[i], grain[i], vegetable[i], beverage[i], dessert[i]]
+            console.log(`I'm about to enjoy some ${meal[0]} with some ${meal.slice(1).join(", ")}`)
+            for (let j = 0; j < meal.length; j++) {
+                if (meal[j].includes("kale")) {
+                    console.log("double chocolate tomorrow!")
+                }
+            }
+        }
+        const userLikedMeal = input.question("Did you like your meals? Y/N: ").toUpperCase()
+        if (userLikedMeal === "N") {
+            userChoice = 0
+        }
     }
 }
 
