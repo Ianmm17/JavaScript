@@ -67,3 +67,11 @@ if (userCargoCabinetSelection < cargoHold.length) {
 }
 
 //e) Modify the code to query the user for BOTH a cabinet in cargoHold AND a particular item. Use the 'includes' method to check if the cabinet contains the selected item, then print “Cabinet ____ DOES/DOES NOT contain ____.”
+
+const userItemSelection = input.question("which item would you like? (0-3) ")
+
+if (cargoHold[userCargoCabinetSelection].includes(userItemSelection)) {
+    console.log( `Cabinet ${userCargoCabinetSelection} Does contain ${userItemSelection}.`)
+} else {
+    console.log(`Cabinet ${userCargoCabinetSelection} DOES NOT contain ${userItemSelection}.`)
+}
