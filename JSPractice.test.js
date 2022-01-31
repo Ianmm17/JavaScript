@@ -1,7 +1,7 @@
 const {sum, doubleInt, collectionsIntArray, doWeMatch, 
-    lowestAndHighest, numberOfLegs, sumInt, 
+    lowestAndHighest, numberOfLegs, sumInt, reverseNums, findNeedle,
     productMulti, userChoiceAddOrMultiply, convertToSeconds,
-    rps, removeLowerVowels} = require('./JSPractice');
+    rps, removeLowerVowels, reverseSeq} = require('./JSPractice');
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -133,11 +133,49 @@ describe("rock paper scissors", () =>{
     })
 })
 
-describe("removing lower case vowels", () => {
-    test("hello", () => {
+describe("removing vowels", () => {
+    test("lower case string", () => {
         const actual = removeLowerVowels("hello")
         const expected = "hll"
         expect(actual).toEqual(expected)
+    })
+    test("upper case string", () => {
+        const actual = removeLowerVowels("HELLO")
+        const expected = "HLL"
+        expect(actual).toEqual(expected)
+    })
+    test("lower case vowels", () => {
+        const actual = removeLowerVowels("HELlo")
+        const expected = "HLl"
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe("given numbers reverse and put into an array", () => {
+    test("54329", () => {
+        const actual = reverseNums(54329)
+        const expected = [9,2,3,4,5]
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe("Find needle in the haystack", () => {
+    test("needle at 5", () => {
+        const actual = findNeedle(['hay', 'junk', 'hay', 'hay', 'moreJunk', 'needle', 'randomJunk'])
+        const expected = "found the needle at position 5"
+        expect(actual).toEqual(expected)
+    })
+    test("needle at 2", () => {
+        const actual = findNeedle(['hay', 'needle', 'hay', 'hay', 'moreJunk', 'junk', 'randomJunk'])
+        const expected = "found the needle at position 1"
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe("Reversed sequence", () => {
+    test("n = 5", () => {
+        const actual = reverseSeq(5)
+        const expected = [5,]
     })
 })
 

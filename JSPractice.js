@@ -116,17 +116,38 @@ function rps(p1, p2) {
 }
 
 function removeLowerVowels(word) {
+    let newWordArr = word.split("")
     const lowerVowels = ["a","e","i","o","u"]
-    for (let i =0; i < word.length; i++) {
-        console.log(i, word[i])
-        if (lowerVowels.includes(word[i])) {
-            let newWord = "";
-            newWord += word.replace(word[i], "")
+    for (let i = 0; i < word.length; i++) {
+        if (lowerVowels.includes(word[i].toLowerCase())) {
+            newWordArr[i] =  ""
         }
-        return newWord;
+   }
+    return newWordArr.join("")
+}
+
+function reverseNums(nums) {
+    nums = nums.toString()
+    let numsArr = [];
+    for (let i = 0; i < nums.length; i++) {
+        numsArr.push(parseInt(nums[i]))
+    }
+    return numsArr.reverse();
+}
+
+function findNeedle(haystack) {
+    for (let i = 0; i < haystack.length; i++) {
+        if (haystack[i] === "needle") {
+            return `found the needle at position ${i}`
+        }
     }
 }
 
+const reverseSeq = n => {
+    return [];
+};
+
 module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
-    lowestAndHighest, numberOfLegs, sumInt, 
-    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels}
+    lowestAndHighest, numberOfLegs, sumInt, reverseNums, findNeedle,
+    productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels,
+    reverseSeq}
