@@ -17,11 +17,25 @@ function findMinValue(numArr) {
 
 function sortLeastToGreatest(numArr) {
     const sortedArr = [];
+
+
     while (numArr.length !== 0) {
         const minValue = findMinValue(numArr);
         sortedArr.push(minValue);
         numArr.splice(numArr.indexOf(minValue), 1);
     }
+    return sortedArr;
+}
+
+function sortLeastToGreatestRecursion(numArr) {
+    if (numArr.length === 0) return [];
+    const sortedArr = [];
+    const minValue = findMinValue(numArr);
+    sortedArr.push(minValue);
+    numArr.splice(numArr.indexOf(minValue), 1);
+
+    const returnedSortedArr = sortLeastToGreatestRecursion(numArr)
+
     return sortedArr;
 }
 
@@ -50,4 +64,4 @@ const results2 = nums2.sort(function (a, b) {
     return b-a
 })
 
-console.log(results2);
+console.log(nums2, results);

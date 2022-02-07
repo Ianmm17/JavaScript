@@ -1,7 +1,7 @@
 const {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, reverseNums, findNeedle,
     productMulti, userChoiceAddOrMultiply, convertToSeconds,
-    rps, removeLowerVowels, reverseSeq} = require('./JSPractice');
+    rps, removeLowerVowels, reverseSeq, removeChar} = require('./JSPractice');
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -172,10 +172,27 @@ describe("Find needle in the haystack", () => {
     })
 })
 
+// EXAMPLE OF TABLE TEST
 describe("Reversed sequence", () => {
-    test("n = 5", () => {
-        const actual = reverseSeq(5)
-        const expected = [5,]
+    test.each([
+        {actual: 5, expected: [5,4,3,2,1]},
+        {actual: 3, expected: [3,2,1]},
+        {actual: 0, expected: []},
+    ])(`Reversed Sequence of $actual should be $expected`, ({actual, expected}) => {{
+        expect(reverseSeq(actual)).toEqual(expected)
+    }})
+})
+
+describe("Remove character", () => {
+    test("removes first and last character", () => {
+        const actual = removeChar("hello")
+        const expected = "ell"
+        expect(actual).toEqual(expected)
+    })
+    test("return empty string if passed empty string", () => {
+        const actual = removeChar("")
+        const expected = ""
+        expect(actual).toEqual(expected)
     })
 })
 
