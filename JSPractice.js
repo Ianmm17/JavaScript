@@ -143,11 +143,19 @@ function findNeedle(haystack) {
     }
 }
 
-const reverseSeq = n => {
-    return [];
-};
+function reverseSeq(num) {
+    let reverseSeqArr = [];
 
+    for (let i = num; i > 0; i--) {
+        reverseSeqArr.push(i)
+    }
+    return reverseSeqArr
+}
+
+function removeChar(str) {
+    return str.slice(1, -1)
+}
 module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, reverseNums, findNeedle,
     productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels,
-    reverseSeq}
+    reverseSeq, removeChar}
