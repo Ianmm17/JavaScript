@@ -28,16 +28,9 @@ function oldScrabbleScorer(word) {
 
 function simpleScore(word) {
     let letterPoints = "";
-    console.log("made it")
+    console.log("made it", word)
     for (let i = 0; i < word.length; i++) {
-
-        for (const pointValue in simpleScoreStructure) {
-
-            if (simpleScoreStructure[pointValue].includes(word[i])) {
-                letterPoints += `Points for '${word[i]}': ${pointValue}\n`
-            }
-
-        }
+        letterPoints += `Points for '${word[i]}': 1\n`
     }
     return letterPoints;
 }
@@ -62,7 +55,7 @@ function vowelBonusScore(word) {
 let word = ""
 function initialPrompt() {
     console.log("Let's play some scrabble!");
-    return word = input.question("Enter a word to score: ").toUpperCase()
+    word = input.question("Enter a word to score: ").toUpperCase()
 };
 
 let simpleScoreStructure = {
@@ -78,11 +71,7 @@ let vowelBonusScoreStructure = {
 
 let scrabbleScore;
 
-const scoringAlgorithms = [{
-    SimpleScore: simpleScore(word),
-    BonusVowels: vowelBonusScore(word),
-    Scrabble: oldScrabbleScorer(word)
-}];
+const scoringAlgorithms = [simpleScore, vowelBonusScore, oldScrabbleScorer];
 
 function scorerPrompt() {
     let scoringAlgorithm = Number(input.question("Which scoring algorithm would you like to use?\n" +
@@ -90,14 +79,10 @@ function scorerPrompt() {
         "1 - Vowel Bonus: Vowels are worth 3 points\n" +
         "2 - Scrabble: Uses scrabble point system\n" +
         "Enter 0,1, or 2: "))
-
-    if (scoringAlgorithm === 0) {
-        console.log("WE PICKED 0")
-        console.log(scoringAlgorithms[0].SimpleScore)
-    } else if (scoringAlgorithm === 1) {
-        return scoringAlgorithms[1].BonusVowels
-    } else if (scoringAlgorithm === 2) {
-        return scoringAlgorithms[2].Scrabble
+    if (scoringAlgorithm < 0 || scoringAlgorithm > 2) {
+        scorerPrompt()
+    } else { 
+        console.log(scoringAlgorithms[scoringAlgorithm](word))
     }
 }
 

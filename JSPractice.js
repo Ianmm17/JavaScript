@@ -155,6 +155,39 @@ function reverseSeq(num) {
 function removeChar(str) {
     return str.slice(1, -1)
 }
+
+function email() {
+    return "yehoo.com"
+}
+
+class Login {
+    constructor(id, password, emailAdd = email()) {
+        this.id = id
+        this.password = password
+        this.email = emailAdd
+    }
+}
+
+let user = new Login("ian", "imthebest")
+let user2 = new Login("bopb", "password", "google.com")
+console.log(user)
+user.id = "bob"
+console.log(user.email)
+console.log(user2)
+
+
+function userIAN(name, Lname) {
+    let userName = {
+        name,
+        lastName: Lname
+    }
+    return userName
+}
+
+let ian  = userIAN("ian", "miller")
+console.log(ian)
+console.log(ian.name)
+
 module.exports = {sum, doubleInt, collectionsIntArray, doWeMatch, 
     lowestAndHighest, numberOfLegs, sumInt, reverseNums, findNeedle,
     productMulti, userChoiceAddOrMultiply, convertToSeconds, rps, removeLowerVowels,
