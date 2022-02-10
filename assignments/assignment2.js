@@ -9,6 +9,10 @@ const oldPointStructure = {
     8: ['J', 'X'],
     10: ['Q', 'Z']
 };
+
+const newPointStructure = {a: 1, b:3, c:3, d:2, e:1, f:4, g:2, h:4, i:1, j:8, k:5, l:1, m:3, n:1, o:1, p:3,
+q:10, r:1, s:1, t:1, u:1, v:4, w:4, x:8, y:4, z:10}
+
 function oldScrabbleScorer(word) {
     word = word.toUpperCase();
     let letterPoints = "";
@@ -18,37 +22,46 @@ function oldScrabbleScorer(word) {
         for (const pointValue in oldPointStructure) {
 
             if (oldPointStructure[pointValue].includes(word[i])) {
+                scrabbleScore += Number(pointValue)
                 letterPoints += `Points for '${word[i]}': ${pointValue}\n`
             }
 
         }
     }
-    return letterPoints;
+    return scrabbleScore;
 }
 
 function simpleScore(word) {
     let letterPoints = "";
-    console.log("made it", word)
+
     for (let i = 0; i < word.length; i++) {
-        letterPoints += `Points for '${word[i]}': 1\n`
+
+        for (const pointValue in simpleScoreStructure) {
+
+            if (simpleScoreStructure[pointValue].includes(word[i])) {
+                scrabbleScore += Number(pointValue)
+                letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+            }
+
+        }
     }
-    return letterPoints;
+    return scrabbleScore
 }
 
 function vowelBonusScore(word) {
     let letterPoints = "";
-
     for (let i = 0; i < word.length; i++) {
 
         for (const pointValue in vowelBonusScoreStructure) {
 
             if (vowelBonusScoreStructure[pointValue].includes(word[i])) {
+                scrabbleScore += Number(pointValue)
                 letterPoints += `Points for '${word[i]}': ${pointValue}\n`
             }
 
         }
     }
-    return letterPoints;
+    return scrabbleScore
 }
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
@@ -69,10 +82,17 @@ let vowelBonusScoreStructure = {
     3: ['A', 'E', 'I', 'O', 'U']
 };
 
-let scrabbleScore;
+let scrabbleScore = 0;
 
-const scoringAlgorithms = [simpleScore, vowelBonusScore, oldScrabbleScorer];
-
+const scoringAlgorithms = [{name: "Simple Score",
+                            description: "Each letter is worth 1 point.",
+                            scoringFunction: simpleScore},
+                            {name: "Bonus Vowels",
+                            description: "Vowels are 3 pts, consonants are 1pt.",
+                            scoringFunction: vowelBonusScore},
+                            {name: "Scrabble",
+                            description: "the traditional scoring algorithm.",
+                            scoringFunction: oldScrabbleScorer}];
 function scorerPrompt() {
     let scoringAlgorithm = Number(input.question("Which scoring algorithm would you like to use?\n" +
         "0 - Simple: One point per character\n" +
@@ -81,14 +101,23 @@ function scorerPrompt() {
         "Enter 0,1, or 2: "))
     if (scoringAlgorithm < 0 || scoringAlgorithm > 2) {
         scorerPrompt()
-    } else { 
-        console.log(scoringAlgorithms[scoringAlgorithm](word))
+    } else if (scoringAlgorithm === 0) {
+        console.log("algorithm name: ", scoringAlgorithms[scoringAlgorithm].name)
+        console.log(`Score for '${word}': ${scoringAlgorithms[scoringAlgorithm].scoringFunction(word)}`)
+    } else if (scoringAlgorithm === 1) {
+        console.log("algorithm name: ", scoringAlgorithms[scoringAlgorithm].name)
+        console.log(`Score for '${word}': ${scoringAlgorithms[scoringAlgorithm].scoringFunction(word)}`)
+    } else if (scoringAlgorithm === 2) {
+        console.log("algorithm name: ", scoringAlgorithms[scoringAlgorithm].name)
+        console.log(`Score for '${word}': ${scoringAlgorithms[scoringAlgorithm].scoringFunction(word)}`)
     }
 }
 
-function transform() {};
+function transform(oldPointStructure) {
+    oldPointStructure = newPointStructure
+    return oldPointStructure
+};
 
-let newPointStructure;
 
 function runProgram() {
    initialPrompt()
@@ -112,4 +141,3 @@ module.exports = {
     scorerPrompt: scorerPrompt
 };
 
-runProgram()
