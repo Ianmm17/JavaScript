@@ -68,12 +68,13 @@ function scrabbleScore(word) {
 
         for (const pointValue in newPointStructure) {
 
-            if (oldPointStructure[pointValue].includes(word[i])) {
+            if (newPointStructure[pointValue].includes(word[i])) {
                 score += Number(pointValue)
             }
 
         }
     }
+    console.log(typeof score)
     return score;
 }
 
