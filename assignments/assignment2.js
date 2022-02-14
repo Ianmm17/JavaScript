@@ -118,8 +118,13 @@ function scorerPrompt() {
 }
 
 function transform(oldPointStructure) {
+    let newResults = {};
     for (const item in oldPointStructure) {
+        for (const indexLetter in oldPointStructure[item]) {
+            newResults[(oldPointStructure[item][indexLetter]).toLowerCase()] = Number(item)
+        }
     }
+    return newResults
 };
 
 
