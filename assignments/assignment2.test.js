@@ -24,7 +24,7 @@ describe("Scrabble Scorer solution", function() {
             return l.match(lettersEx);
         });
 
-        expect(expected).toBeTrue();
+        expect(expected).toBe(true);
     });
 
     it("transform returns an object with integer values", function() {
@@ -34,7 +34,7 @@ describe("Scrabble Scorer solution", function() {
         let expected = numberVals.every(function(n) {
             return typeof n == 'number';
         });
-        expect(expected).toBeTrue();
+        expect(expected).toBe(true);
     });
 
     // // newPointStructure tests //
@@ -131,12 +131,10 @@ describe("Scrabble Scorer solution", function() {
         expect(solution.scoringAlgorithms.length).toBe(3);
     });
 
-    it("scoringAlgorithms contain three scoring objects", function() {
-        expect(solution.scoringAlgorithms).toContain(({
-            scoringFunction: solution.simpleScore,
-            scoringFunction: solution.vowelBonusScore,
-            scoringFunction: solution.scrabbleScore,
-        }));
+    it("contains a scoringAlgorithms array of three scoring objects", function() {
+        expect(solution.scoringAlgorithms.length).toBe(3);
+        expect(solution.scoringAlgorithms[0].scoringFunction).toBe(solution.simpleScore);
+        expect(solution.scoringAlgorithms[1].scoringFunction).toBe(solution.vowelBonusScore);
+        expect(solution.scoringAlgorithms[2].scoringFunction).toBe(solution.scrabbleScore);
     });
-
 });

@@ -36,19 +36,17 @@ function simpleScore(word) {
 }
 
 function scrabbleScore(word) {
+    score = 0
     word = word.toUpperCase()
 
     for (let i = 0; i < word.length; i++) {
 
-        for (const pointValue in newPointStructure) {
-
-            if (newPointStructure[pointValue].includes(word[i])) {
-                score += Number(pointValue)
+        for (const letter in newPointStructure) {
+            if (letter.toUpperCase() === word[i]) {
+                score += newPointStructure[letter]
             }
-
         }
     }
-    console.log(typeof score)
     return score;
 }
 
@@ -58,7 +56,6 @@ function vowelBonusScore(word) {
     for (let i = 0; i < word.length; i++) {
 
         for (const pointValue in vowelBonusScoreStructure) {
-
             if (vowelBonusScoreStructure[pointValue].includes(word[i])) {
                 score += Number(pointValue)
             }
