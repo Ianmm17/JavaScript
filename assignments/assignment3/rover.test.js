@@ -9,13 +9,18 @@ const Command = require('../assignment3/command.js');
 describe("Rover class", function() {
 
     it('constructor sets position and default values for mode and generatorWatts', function () {
-        let rover = new Rover('foo', 'NORMAL', 110)
-        expect(rover.position).toEqual('foo')
+        let actual = new Rover('foo', 'NORMAL', 110)
+        let expected = 'foo'
+        expect(actual.position).toEqual(expected)
     });
 
-    it('response return by receiveMessage contains name of message')
-    let response = new Rover()
-    expect()
+    it('response returned by receiveMessage contains name of message', function () {
+        let actual = new Rover().receiveMessage('dave')
+        let expected = 'dave'
+        expect(actual).toEqual(expected)
+    })
+
+    it("response returned by receiveMessage includes two results if two commands are sent in the message")
     // 7 tests here!
 
 });
