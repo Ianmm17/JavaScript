@@ -9,7 +9,7 @@ class Rover {
     receiveMessage(message) {
         let obj = {
             message: Message,
-            result: 
+            //result:
         }
         return
 
