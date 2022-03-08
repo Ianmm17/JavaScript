@@ -38,3 +38,7 @@ header, main, footer, #back-to-top {
     background-color: #ddd;
     font-size: 1.6em;
 }
+
+#program {
+    width: 100%;
+}
