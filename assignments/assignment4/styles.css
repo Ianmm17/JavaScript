@@ -1,6 +1,9 @@
 body {
-    margin: 25px;
-    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 1024px;
+    background-color: #999;
+    font-size: 62.5%;
 }
 
 #mainHeading {
@@ -19,14 +22,19 @@ img {
 }
 
 #back-to-top {
-    margin-left: 85%;
-    font-size: larger;
+    margin-left: 80%;
 }
 
 main {
     margin-top: 100px;
+    text-align: center;
 }
 
 section {
     margin-bottom: 100px;
+}
+
+header, main, footer, #back-to-top {
+    background-color: #ddd;
+    font-size: 1.6em;
 }
