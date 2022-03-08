@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Ianmm17/JavaScript#readme",
   "description": "",
   "dependencies": {
+    "bootstrap-icons": "^1.8.1",
     "readline-sync": "^1.4.10"
   }
 }
