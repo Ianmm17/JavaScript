@@ -1,9 +1,4 @@
 //import fetch from "node-fetch";
-<<<<<<< HEAD
-
-
-
-=======
 let input = document.getElementById('submitCity').addEventListener('click', displayTemp)
 
 
@@ -16,7 +11,6 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&a
     console.log('yeet', json)
     console.log((typeof json.main.temp))
     })
->>>>>>> 9d722d5b5b9fec8bbac258ebe66fe379415c40ed
 
 
 function celToFahren(json) {
@@ -27,7 +21,6 @@ function celToFahren(json) {
 }
 
 function displayTemp () {
-<<<<<<< HEAD
     let userInput = document.getElementById('city').value
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=metric&appid=fc9fb32659d39095a4bd6dd459908cfa`)
         .then(function (response) {
@@ -38,8 +31,6 @@ function displayTemp () {
         console.log('yeet', json)
         console.log((typeof json.main.temp))
     })
-=======
     let city = document.getElementById('city').value
     console.log(city)
->>>>>>> 9d722d5b5b9fec8bbac258ebe66fe379415c40ed
 }
